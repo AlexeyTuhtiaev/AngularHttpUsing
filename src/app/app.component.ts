@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
  cars = [
    {
-     name: '',
-     color: '',
-     id: ''
+     name: 'Ford',
+     color: 'white',
+     id: '1'
    }
  ];
 }
