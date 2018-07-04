@@ -8,6 +8,16 @@ export class CarsService {
 
   getCars(){
     return this.httpVar.get('http://localhost:3000/cars')
-      .map((response: Response)=>response.json() );
+      .map((response: Response)=>response.json());
+  }
+
+  addCar(carName: string, carColor: string){
+    const data={
+      name: carName,
+      color: carColor
+    };
+    return  this.httpVar.post('http://localhost:3000/cars',data)
+      .map((response: Response)=>response.json());
+
   }
 }
