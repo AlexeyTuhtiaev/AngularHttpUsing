@@ -32,16 +32,22 @@ export class AppComponent {
       .getCars()
       .subscribe((cars: Cars[])=>{
         this.cars=cars;
-      })
-    ;
+      },
+        (error)=>{
+          alert(error);
+        });
   }
 
   addCar(){
     this.carsService
       .addCar(this.carName, this.carColor)
-      .subscribe((car: Cars)=>{
-      this.cars.push(car);
-      });
+      .subscribe(
+        (car: Cars)=>{
+          this.cars.push(car);
+      },
+        (error)=>{
+          alert(error);
+        });
     this.carName='';
     this.carColor='';
   }

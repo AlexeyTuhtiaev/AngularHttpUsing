@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core'
 import {Http, Response} from '@angular/http';
+import {Observable} from "rxjs/Observable";
 
 @Injectable ()
 export class CarsService {
@@ -7,8 +8,12 @@ export class CarsService {
   constructor( private httpVar: Http) {}
 
   getCars(){
-    return this.httpVar.get('http://localhost:3000/cars')
-      .map((response: Response)=>response.json());
+    return this.httpVar
+      .get('http://localhost:3000/cars')
+      .map((response: Response)=>response.json())
+      .catch((error: Response)=>{
+      return Observable.throw('Error!!!');
+      });
   }
 
   addCar(carName: string, carColor: string){
