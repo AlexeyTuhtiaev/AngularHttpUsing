@@ -25,4 +25,9 @@ export class CarsService {
     return this.httpVar.put(`http://localhost:3000/cars/${car.id}`, car)
       .map((response: Response)=>response.json());
   }
+
+  deleteCar(car: any){
+    return this.httpVar.delete(`http://localhost:3000/cars/${car.id}`)
+      .map((response: Response)=>response.json());
+  }
 }

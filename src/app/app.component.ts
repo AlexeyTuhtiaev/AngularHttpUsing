@@ -57,4 +57,12 @@ export class AppComponent {
       console.log(data);
       });
   }
+
+  deleteCar(car: Cars){
+    this.carsService.deleteCar(car)
+      .subscribe((data)=>{
+      this.cars=this.cars.filter(c=>c.id !==car.id);
+        console.log(data);
+      });
+  }
 }

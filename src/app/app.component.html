@@ -13,6 +13,7 @@
   <li class="list-group-item" *ngFor="let car of cars">
     car name: {{car.name}}(color: {{car.color}})
     <button class="btn btn-xs btn-info" (click)="setNewColor(car)">Change color</button>
+    <button class="btn btn-xs btn-danger" (click)="deleteCar(car)">delete</button>
     <span class="badge badge-secondary"
           [ngStyle]="{background: car.color}"
     >ID:{{car.id}}</span>
