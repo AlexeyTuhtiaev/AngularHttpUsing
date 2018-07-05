@@ -4,8 +4,14 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable ()
 export class CarsService {
-
   constructor( private httpVar: Http) {}
+
+  getAppTitle(){
+    return this.httpVar.get('http://localhost:3000/title')
+      .delay(2000)
+      .map((response: Response)=> response.json())
+      .map((data)=>data.value);
+  }
 
   getCars(){
     return this.httpVar
